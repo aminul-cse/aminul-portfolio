@@ -1,5 +1,5 @@
 {
-  "name": "aaron-portfolio",
+  "name": "aminul-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -17,5 +17,6 @@
     "tailwindcss": "latest",
     "@tailwindcss/vite": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "packageManager": "pnpm@11.19.0"
 }
