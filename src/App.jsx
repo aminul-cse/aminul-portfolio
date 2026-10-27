@@ -1,15 +1,17 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { useState } from 'react'
-import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail, Menu, Sparkle } from './components/Icons'
+import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail, Menu } from './components/Icons'
+import portrait from './assets/aminul-portrait.png'
 
 const navItems = ['About', 'Skills', 'Experience', 'Education', 'Projects', 'Contact']
 
-// Replace these placeholders with Aminul's actual contact details before publishing.
 const contactDetails = {
-  email: { label: 'Email', value: 'your.email@example.com', href: 'mailto:your.email@example.com' },
-  github: { label: 'GitHub', value: 'github.com/your-username', href: 'https://github.com/your-username' },
-  linkedin: { label: 'LinkedIn', value: 'linkedin.com/in/your-username', href: 'https://www.linkedin.com/in/your-username' },
+  email: { label: 'Email', value: 'aminulcse2023@gmail.com', href: 'mailto:aminulcse2023@gmail.com' },
+  github: { label: 'GitHub', value: 'github.com/aminul-cse', href: 'https://github.com/aminul-cse' },
+  linkedin: { label: 'LinkedIn', value: 'linkedin.com/in/aminul404', href: 'https://www.linkedin.com/in/aminul404' },
 }
+
+const cvUrl = 'https://drive.google.com/uc?export=download&id=1Z5WHLvwUWT6GtHRsj-rJGJl8ph6UJNCY'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -33,14 +35,9 @@ function Header() {
 
 function HeroArt() {
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[420px]" aria-hidden="true">
-      <div className="absolute inset-[7%] rounded-full border border-zinc-800/80" />
-      <div className="absolute inset-[15%] rounded-full border border-dashed border-zinc-700/80" />
-      <div className="absolute inset-[24%] rounded-full bg-[radial-gradient(circle_at_30%_25%,#e5ff62,transparent_27%),radial-gradient(circle_at_68%_75%,#a3e635,transparent_32%),linear-gradient(135deg,#3f3f46,#09090b_68%)] shadow-[0_0_100px_-28px_rgba(190,242,100,.65)]" />
-      <div className="absolute left-[33%] top-[27%] size-[14%] rounded-full bg-lime-100 opacity-90 blur-[1px]" />
-      <div className="absolute bottom-[28%] right-[24%] size-[19%] rounded-full bg-zinc-950/80 ring-1 ring-white/30" />
-      <div className="absolute right-[2%] top-[22%] grid size-12 place-items-center rounded-2xl border border-zinc-700 bg-zinc-900/90 text-lime-300 shadow-xl"><Sparkle /></div>
-      <div className="absolute bottom-[9%] left-[1%] rounded-xl border border-zinc-700 bg-zinc-900/95 px-3 py-2 shadow-xl">
+    <div className="relative mx-auto w-full max-w-[420px]">
+      <img src={portrait} alt="Aminul Islam smiling against a dark background with green orbital accents" width="1381" height="1139" fetchPriority="high" className="block h-auto w-full rounded-2xl object-contain shadow-[0_0_80px_-28px_rgba(190,242,100,.2)]" />
+      <div className="absolute bottom-[3%] left-[3%] rounded-xl border border-zinc-700 bg-zinc-900/95 px-3 py-2 shadow-xl">
         <p className="font-mono text-[9px] uppercase tracking-[.18em] text-zinc-500">Currently</p>
         <p className="mt-0.5 text-xs font-medium text-zinc-100">Building better web</p>
       </div>
@@ -62,11 +59,12 @@ function Hero() {
           <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mt-9 flex flex-wrap items-center gap-3">
             <a href="#projects" className="inline-flex items-center gap-2 rounded-full bg-lime-300 px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-lime-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300">Explore my work <ArrowDown /></a>
             <a href={contactDetails.email.href} className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-zinc-200 transition hover:text-lime-300">Get in touch <ArrowUpRight /></a>
+            <a href={cvUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-lime-300 hover:text-lime-300">Download CV <ArrowDown /></a>
           </motion.div>
           <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mt-14 flex items-center gap-5 text-zinc-500">
             <span className="text-xs uppercase tracking-[.16em]">Find me</span><span className="h-px w-8 bg-zinc-700" />
-            <a className="transition hover:text-white" href={contactDetails.github.href} aria-label="GitHub"><Github /></a>
-            <a className="transition hover:text-white" href={contactDetails.linkedin.href} aria-label="LinkedIn"><Linkedin /></a>
+            <a className="transition hover:text-white" href={contactDetails.github.href} aria-label="GitHub" target="_blank" rel="noopener noreferrer"><Github /></a>
+            <a className="transition hover:text-white" href={contactDetails.linkedin.href} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><Linkedin /></a>
           </motion.div>
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: reduceMotion ? 1 : .94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .8, delay: .18 }} className="order-1 md:order-2"><HeroArt /></motion.div>
